@@ -1,10 +1,12 @@
 import multer from "multer";
 import path from "path";
-import { fileURLToPath } from "url";
+import fs from "fs";
 import { v4 as uuid } from "uuid";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const uploadDir = path.resolve(__dirname, "../../../data/uploads");
+// Use process.cwd() (always the backend dir) so the path is correct
+// whether running via ts-node/tsx (dev) or tsup bundle (prod)
+const uploadDir = path.resolve(process.cwd(), "../data/uploads");
+fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => {

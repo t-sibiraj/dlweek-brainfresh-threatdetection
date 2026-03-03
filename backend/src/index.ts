@@ -22,7 +22,9 @@ const server = http.createServer(app);
 // ─── Middleware ────────────────────────────────────────────
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "http://127.0.0.1:5173", "http://127.0.0.1:5174"],
+    origin: env.NODE_ENV === "production"
+      ? true  // allow all origins in production (nginx handles proxying)
+      : ["http://localhost:5173", "http://localhost:5174", "http://127.0.0.1:5173", "http://127.0.0.1:5174"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
   })
@@ -50,6 +52,13 @@ app.get("/api/health", (_req, res) => {
 
 // ─── Error Handler ────────────────────────────────────────
 app.use(errorHandler);
+
+// ─── Serve Frontend (production) ──────────────────────────
+const frontendDir = path.resolve(__dirname, "../../frontend/dist");
+app.use(express.static(frontendDir));
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(frontendDir, "index.html"));
+});
 
 // ─── Initialize ───────────────────────────────────────────
 async function start() {

@@ -1,13 +1,10 @@
 import dotenv from "dotenv";
 import path from "path";
-import { fileURLToPath } from "url";
 import { z } from "zod";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-// Load .env from workspace root (two levels up from config/)
-dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
-// Also try backend/.env as fallback
-dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+// Load .env from workspace root then backend dir as fallback
+dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 
 const envSchema = z.object({
   OPENAI_API_KEY: z.string().min(1, "OPENAI_API_KEY is required"),

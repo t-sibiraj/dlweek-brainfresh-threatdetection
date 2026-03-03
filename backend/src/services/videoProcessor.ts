@@ -1,11 +1,11 @@
 import ffmpeg from "fluent-ffmpeg";
 import path from "path";
-import { fileURLToPath } from "url";
 import fs from "fs";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const chunksDir = path.resolve(__dirname, "../../../data/chunks");
-const gifsDir = path.resolve(__dirname, "../../../data/gifs");
+const chunksDir = path.resolve(process.cwd(), "../data/chunks");
+const gifsDir = path.resolve(process.cwd(), "../data/gifs");
+fs.mkdirSync(chunksDir, { recursive: true });
+fs.mkdirSync(gifsDir, { recursive: true });
 
 /**
  * Get video duration in seconds using ffprobe

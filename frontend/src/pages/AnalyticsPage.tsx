@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   BarChart3,
   TrendingUp,
-  Clock,
   Cpu,
   RefreshCw,
   Loader2,

@@ -1,11 +1,9 @@
 import { ChildProcess, spawn } from "child_process";
 import path from "path";
-import { fileURLToPath } from "url";
 import fs from "fs";
 import { v4 as uuid } from "uuid";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataDir = path.resolve(__dirname, "../../../data");
+const dataDir = path.resolve(process.cwd(), "../data");
 const framesDir = path.join(dataDir, "frames");
 const hlsDir = path.join(dataDir, "hls");
 
