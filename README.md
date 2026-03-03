@@ -1,5 +1,10 @@
 # 🛡️ AI Threat Detection
 
+Webiste: https://ai-threat-detection-production.up.railway.app
+
+Email: admin@voiddecksafety.local
+Password: admin123
+
 **AI-Powered Real-Time Safety & Threat Monitoring Platform**
 
 AI Threat Detection is a full-stack, real-time threat detection system that leverages multi-provider AI vision models (OpenAI GPT-4.1, Anthropic Claude, Google Gemini) to analyze video streams, webcam feeds, and images for safety threats. It supports both **physical surveillance** (violence, weapons, medical emergencies) and **online safety** (grooming, abuse, coercion) use cases — scoring, escalating, and alerting in real time.
