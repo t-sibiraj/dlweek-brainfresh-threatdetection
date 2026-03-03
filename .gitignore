@@ -5,3 +5,4 @@ dist/
 *.db
 .venv/
 __pycache__/
+*.mp4
