@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-surface-2: #111111;
+  --color-surface-3: #181818;
+  --color-border: #333333;
+  --color-border-light: #444444;
+  --color-text: #ffffff;
+  --color-text-secondary: #aaaaaa;
+  --color-text-dim: #999999;
+  --color-accent: #ffffff;
+  --color-danger: #ff4444;
+  --color-safe: #888888;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "SF Mono",
+    "Fira Code",
+    "Fira Mono",
+    "Roboto Mono",
+    monospace;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes gauge-fill {
+  from { stroke-dashoffset: 283; }
+}
+
+.gauge-animate {
+  animation: gauge-fill 1s ease-out;
+}
+
+@keyframes processing-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-processing {
+  animation: processing-spin 1.5s linear infinite;
+}
+
+button {
+  cursor: pointer;
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
